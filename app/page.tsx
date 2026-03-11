@@ -87,7 +87,7 @@ function Header() {
       
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-12">
-          <a href="#" className="text-2xl font-black tracking-tighter italic">TECHMOTION</a>
+          <a href="#" className="text-2xl font-medium tracking-tighter italic">TECHMOTION</a>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <a href="#" className="hover:text-zinc-600">Laptops</a>
             <a href="#" className="hover:text-zinc-600">Desktops</a>
@@ -135,12 +135,12 @@ function Hero() {
           <span className="text-white">Gaming PCs</span>
         </div>
         
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Gaming PCs</h1>
+        <h1 className="text-4xl sm:text-5xl font-medium text-white mb-4">Gaming PCs</h1>
         <p className="text-zinc-300 max-w-2xl text-sm sm:text-base leading-relaxed mb-8">
           Gaming PCs are designed for high-performance gaming, offering powerful processors, dedicated graphics cards, and reliable cooling to handle demanding titles, tackling intensive workloads, or exploring virtual worlds, they provide great control, stability, and comfort for every session.
         </p>
         
-        <button className="bg-white text-zinc-900 px-6 py-3 text-sm font-semibold rounded hover:bg-zinc-100 transition-colors w-fit">
+        <button className="bg-white text-zinc-900 px-6 py-3 text-sm font-medium rounded-full hover:bg-zinc-100 transition-colors w-fit">
           See all PCs
         </button>
       </div>
@@ -162,7 +162,7 @@ function CategoryRow() {
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-8">
       {categories.map((cat) => (
         <a key={cat.name} href="#" className="group block">
-          <div className="relative aspect-[4/3] rounded overflow-hidden mb-2 bg-zinc-100">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-2 bg-zinc-100">
             <Image
               src={cat.image}
               alt={cat.name}
@@ -183,7 +183,7 @@ function FilterBar() {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-y border-zinc-200">
       <div className="flex items-center gap-4 flex-wrap">
-        <span className="font-bold">145 products found</span>
+        <span className="font-medium">145 products found</span>
         <div className="flex flex-wrap gap-2">
           {activeFilters.map((filter) => (
             <span key={filter} className="inline-flex items-center gap-1 px-3 py-1 border border-zinc-200 rounded-full text-xs text-zinc-600 hover:border-zinc-300 cursor-pointer">
@@ -265,7 +265,7 @@ function Sidebar() {
 function FilterSection({ title, children, defaultOpen = true }: { title: string, children?: React.ReactNode, defaultOpen?: boolean }) {
   return (
     <div className="border-b border-zinc-100 pb-6">
-      <button className="flex items-center justify-between w-full text-sm font-bold tracking-wide mb-4">
+      <button className="flex items-center justify-between w-full text-sm font-medium tracking-wide mb-4">
         {title}
         {defaultOpen ? <Minus className="w-4 h-4 text-zinc-400" /> : <Plus className="w-4 h-4 text-zinc-400" />}
       </button>
@@ -282,7 +282,7 @@ function Checkbox({ label, count, checked = false }: { label: string, count: num
   return (
     <label className="flex items-center justify-between cursor-pointer group">
       <div className="flex items-center gap-3">
-        <div className={`w-4 h-4 rounded border flex items-center justify-center transition-colors ${checked ? 'bg-zinc-900 border-zinc-900' : 'border-zinc-300 group-hover:border-zinc-400'}`}>
+        <div className={`w-4 h-4 rounded-md border flex items-center justify-center transition-colors ${checked ? 'bg-zinc-900 border-zinc-900' : 'border-zinc-300 group-hover:border-zinc-400'}`}>
           {checked && <Check className="w-3 h-3 text-white" />}
         </div>
         <span className="text-sm text-zinc-700">{label}</span>
@@ -373,13 +373,13 @@ function ProductGrid() {
 function ProductCard({ product }: { product: any }) {
   return (
     <div className="group flex flex-col">
-      <div className="relative aspect-square bg-zinc-50 rounded-lg p-6 mb-4 overflow-hidden">
+      <div className="relative aspect-square bg-zinc-50 rounded-2xl p-6 mb-4 overflow-hidden">
         {/* Badges */}
         <div className="absolute top-4 left-4 flex gap-2 z-10">
           {product.badges.map((badge: any, idx: number) => (
             <span
               key={idx}
-              className={`text-[10px] font-bold px-2 py-1 rounded-sm tracking-wide ${
+              className={`text-[10px] font-medium px-2 py-1 rounded-md tracking-wide ${
                 badge.type === 'dark' ? 'bg-zinc-900 text-white' :
                 badge.type === 'sale' ? 'bg-red-50 text-red-600' :
                 'bg-white text-zinc-600 border border-zinc-200'
@@ -412,13 +412,13 @@ function ProductCard({ product }: { product: any }) {
             )
           ))}
         </div>
-        <button className="text-[10px] font-bold text-zinc-400 hover:text-zinc-900 flex items-center gap-1 tracking-wide">
+        <button className="text-[10px] font-medium text-zinc-400 hover:text-zinc-900 flex items-center gap-1 tracking-wide">
           <Plus className="w-3 h-3" /> COMPARE
         </button>
       </div>
       
       {/* Title & Price */}
-      <h3 className="font-bold text-zinc-900 mb-1 leading-tight">{product.name}</h3>
+      <h3 className="font-medium text-zinc-900 mb-1 leading-tight">{product.name}</h3>
       <div className="flex items-center gap-2 text-sm">
         <span className={product.originalPrice ? 'text-red-600 font-medium' : 'text-zinc-900 font-medium'}>
           ${product.price.toLocaleString()}
@@ -437,17 +437,17 @@ function Pagination() {
   return (
     <div className="flex flex-col items-center mt-16 mb-8">
       <div className="flex items-center gap-2 mb-4">
-        <button className="w-8 h-8 flex items-center justify-center rounded border border-zinc-200 text-zinc-400 hover:text-zinc-900 hover:border-zinc-300">
+        <button className="w-8 h-8 flex items-center justify-center rounded-full border border-zinc-200 text-zinc-400 hover:text-zinc-900 hover:border-zinc-300">
           <ChevronLeft className="w-4 h-4" />
         </button>
-        <button className="w-8 h-8 flex items-center justify-center rounded text-sm font-medium hover:bg-zinc-50">1</button>
-        <button className="w-8 h-8 flex items-center justify-center rounded text-sm font-medium hover:bg-zinc-50">2</button>
-        <button className="w-8 h-8 flex items-center justify-center rounded text-sm font-medium hover:bg-zinc-50">3</button>
-        <button className="w-8 h-8 flex items-center justify-center rounded text-sm font-medium bg-zinc-900 text-white">4</button>
-        <button className="w-8 h-8 flex items-center justify-center rounded text-sm font-medium hover:bg-zinc-50">5</button>
+        <button className="w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium hover:bg-zinc-50">1</button>
+        <button className="w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium hover:bg-zinc-50">2</button>
+        <button className="w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium hover:bg-zinc-50">3</button>
+        <button className="w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium bg-zinc-900 text-white">4</button>
+        <button className="w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium hover:bg-zinc-50">5</button>
         <span className="text-zinc-400">...</span>
-        <button className="w-8 h-8 flex items-center justify-center rounded text-sm font-medium hover:bg-zinc-50">10</button>
-        <button className="w-8 h-8 flex items-center justify-center rounded border border-zinc-200 text-zinc-900 hover:bg-zinc-50">
+        <button className="w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium hover:bg-zinc-50">10</button>
+        <button className="w-8 h-8 flex items-center justify-center rounded-full border border-zinc-200 text-zinc-900 hover:bg-zinc-50">
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
@@ -459,7 +459,7 @@ function Pagination() {
 function PromoBanners() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-16">
-      <div className="relative h-[240px] rounded-lg overflow-hidden group cursor-pointer">
+      <div className="relative h-[240px] rounded-2xl overflow-hidden group cursor-pointer">
         <Image
           src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=1000"
           alt="Find Your Perfect Setup"
@@ -468,13 +468,13 @@ function PromoBanners() {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 p-8 flex flex-col justify-end">
-          <h3 className="text-2xl font-bold text-white mb-2">Find Your Perfect Setup</h3>
+          <h3 className="text-2xl font-medium text-white mb-2">Find Your Perfect Setup</h3>
           <span className="text-white text-sm font-medium flex items-center gap-1 underline underline-offset-4 hover:text-zinc-200 w-fit">
             Start now <ChevronRight className="w-4 h-4" />
           </span>
         </div>
       </div>
-      <div className="relative h-[240px] rounded-lg overflow-hidden group cursor-pointer">
+      <div className="relative h-[240px] rounded-2xl overflow-hidden group cursor-pointer">
         <Image
           src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=1000"
           alt="Find Your Specs"
@@ -483,7 +483,7 @@ function PromoBanners() {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 p-8 flex flex-col justify-end">
-          <h3 className="text-2xl font-bold text-white mb-2">Find Your Specs</h3>
+          <h3 className="text-2xl font-medium text-white mb-2">Find Your Specs</h3>
           <span className="text-white text-sm font-medium flex items-center gap-1 underline underline-offset-4 hover:text-zinc-200 w-fit">
             Use our spec finder <ChevronRight className="w-4 h-4" />
           </span>
@@ -496,7 +496,7 @@ function PromoBanners() {
 function SeoText() {
   return (
     <div className="max-w-4xl my-16">
-      <h2 className="text-xl font-bold mb-4">Buy a Gaming PC online</h2>
+      <h2 className="text-xl font-medium mb-4">Buy a Gaming PC online</h2>
       <p className="text-sm text-zinc-600 leading-relaxed mb-4">
         Looking for the perfect gaming PC to match your competitive spirit? Explore our wide selection of rigs designed for every level of gamer — from weekend warriors to seasoned esports enthusiasts. Our collection includes prebuilt desktops, custom rigs, high-performance laptops, and mini PCs to give you the best performance on any title.
       </p>
@@ -517,7 +517,7 @@ function SimilarTerms() {
   
   return (
     <div className="my-16">
-      <h3 className="text-lg font-bold mb-6">Similar search terms</h3>
+      <h3 className="text-lg font-medium mb-6">Similar search terms</h3>
       <div className="flex flex-wrap gap-3">
         {terms.map((term) => (
           <a key={term} href="#" className="px-4 py-2 border border-zinc-200 rounded-full text-xs font-medium text-zinc-700 hover:border-zinc-400 hover:bg-zinc-50 transition-colors">
@@ -534,7 +534,7 @@ function RecentlyViewed() {
   
   return (
     <div className="my-16 pt-16 border-t border-zinc-200">
-      <h3 className="text-lg font-bold mb-8">Your recently viewed items</h3>
+      <h3 className="text-lg font-medium mb-8">Your recently viewed items</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {recentProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
@@ -550,12 +550,12 @@ function Footer() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16">
           <div>
-            <h2 className="text-2xl font-bold text-white mb-1">Our community</h2>
-            <p className="text-2xl font-black italic text-white">#TECHMOTION</p>
+            <h2 className="text-2xl font-medium text-white mb-1">Our community</h2>
+            <p className="text-2xl font-medium italic text-white">#TECHMOTION</p>
           </div>
           <div className="flex gap-2">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="relative w-20 h-20 rounded bg-zinc-800 overflow-hidden">
+              <div key={i} className="relative w-20 h-20 rounded-2xl bg-zinc-800 overflow-hidden">
                 <Image
                   src={`https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=200&sig=${i}`}
                   alt="Community"
@@ -564,7 +564,7 @@ function Footer() {
                 />
               </div>
             ))}
-            <button className="w-20 h-20 rounded bg-zinc-800 flex items-center justify-center hover:bg-zinc-700 transition-colors">
+            <button className="w-20 h-20 rounded-2xl bg-zinc-800 flex items-center justify-center hover:bg-zinc-700 transition-colors">
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
           </div>
@@ -572,7 +572,7 @@ function Footer() {
         
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12 mb-16">
           <div>
-            <h4 className="text-xs font-bold text-white tracking-wider mb-6">PRODUCTS</h4>
+            <h4 className="text-xs font-medium text-white tracking-wider mb-6">PRODUCTS</h4>
             <ul className="space-y-4 text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Laptops</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Desktops</a></li>
@@ -586,7 +586,7 @@ function Footer() {
           </div>
           
           <div>
-            <h4 className="text-xs font-bold text-white tracking-wider mb-6">SUPPORT</h4>
+            <h4 className="text-xs font-medium text-white tracking-wider mb-6">SUPPORT</h4>
             <ul className="space-y-4 text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Help hub</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Store finder</a></li>
@@ -598,7 +598,7 @@ function Footer() {
           </div>
           
           <div>
-            <h4 className="text-xs font-bold text-white tracking-wider mb-6">ABOUT US</h4>
+            <h4 className="text-xs font-medium text-white tracking-wider mb-6">ABOUT US</h4>
             <ul className="space-y-4 text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Why use</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Work with us</a></li>
@@ -607,7 +607,7 @@ function Footer() {
           </div>
           
           <div>
-            <h4 className="text-xs font-bold text-white tracking-wider mb-6">FOLLOW US</h4>
+            <h4 className="text-xs font-medium text-white tracking-wider mb-6">FOLLOW US</h4>
             <ul className="space-y-4 text-sm">
               <li><a href="#" className="hover:text-white transition-colors flex items-center gap-3"><div className="w-4 h-4 rounded-full border border-current flex items-center justify-center text-[8px]">in</div> Instagram</a></li>
               <li><a href="#" className="hover:text-white transition-colors flex items-center gap-3"><div className="w-4 h-4 rounded-full border border-current flex items-center justify-center text-[8px]">yt</div> YouTube</a></li>
@@ -617,7 +617,7 @@ function Footer() {
           </div>
           
           <div className="col-span-2 md:col-span-1">
-            <h4 className="text-xs font-bold text-white tracking-wider mb-6">SUBSCRIBE TO OUR NEWSLETTER</h4>
+            <h4 className="text-xs font-medium text-white tracking-wider mb-6">SUBSCRIBE TO OUR NEWSLETTER</h4>
             <p className="text-sm mb-6 leading-relaxed">Exclusive offers, news and contents feeding your passion. No spam, just TECH!</p>
             <div className="relative">
               <input 
@@ -634,7 +634,7 @@ function Footer() {
         
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-zinc-800 text-xs">
           <div className="flex items-center gap-4 mb-4 md:mb-0">
-            <span className="font-black italic text-white text-sm">TECHMOTION</span>
+            <span className="font-medium italic text-white text-sm">TECHMOTION</span>
             <span>© Copyright - 2025. All Rights Reserved</span>
           </div>
           <div className="flex items-center gap-2">
