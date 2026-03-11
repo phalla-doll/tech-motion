@@ -62,29 +62,6 @@ function TopBanner() {
 function Header() {
   return (
     <header className="border-b border-zinc-200">
-      <div className="bg-zinc-900 text-zinc-300 text-xs py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <nav className="flex gap-4 sm:gap-6">
-          <a href="#" className="hover:text-white">About us</a>
-          <a href="#" className="hover:text-white">Services</a>
-          <a href="#" className="hover:text-white">Store finder</a>
-          <a href="#" className="hover:text-white">Buying guide</a>
-          <a href="#" className="hover:text-white">Blog</a>
-          <a href="#" className="hover:text-white">Help</a>
-          <a href="#" className="hover:text-white">Contacts</a>
-        </nav>
-        <div className="flex items-center gap-6">
-          <a href="tel:0800200888" className="flex items-center gap-2 hover:text-white">
-            <Phone className="w-3 h-3" />
-            0 800 200 888
-          </a>
-          <button className="flex items-center gap-1 hover:text-white">
-            <Globe className="w-3 h-3" />
-            EN
-            <ChevronDown className="w-3 h-3" />
-          </button>
-        </div>
-      </div>
-      
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-12">
           <a href="#" className="text-2xl font-medium tracking-tighter italic">TECHMOTION</a>
